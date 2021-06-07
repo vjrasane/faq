@@ -24,12 +24,7 @@ type ValueOf<T> = T[keyof T];
 ### Read package.json version with Bash
 
 ```shell
-cat package.json \
-| grep version \
-| head -1 \
-| awk -F: '{ print $2 }' \
-| sed 's/[",]//g' \
-| tr -d '[[:space:]]')
+jq -r '.version' package.json
 ```
 
 ## React
